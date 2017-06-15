@@ -2,6 +2,10 @@
 
 A library for string manipulation.
 
+## Status
+
+[![Build Status](https://travis-ci.org/daftspaniel/stringprocess.svg?branch=master)](https://travis-ci.org/daftspaniel/stringprocess)
+
 ## Usage
 
 A simple usage example:
@@ -28,6 +32,12 @@ A simple usage example:
 ## Unit Testing
 
 pub run test test/stringprocess_test.dart -p chrome
+
+## Acknowledgements
+This package makes use of the following Dart packages:
+
+  + html_unescape
+  + markdown
 
 ## Features and bugs
 
