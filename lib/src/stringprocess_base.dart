@@ -6,12 +6,14 @@ import 'dart:math';
 import 'package:markdown/markdown.dart' as md;
 import 'package:html_unescape/html_unescape.dart';
 
-class TextProcessingService {
+class StringProcessor {
 
+  // Trim the supplied [String].
   String trimText(String src) {
     return src.trim();
   }
 
+  // Calculate the Word Count for the [String].
   int getWordCount(String text) {
     String workingText = text;
     workingText =
@@ -23,6 +25,7 @@ class TextProcessingService {
     return min(words.length, text.length);
   }
 
+  // Count the number of lines in the [String].
   int getLineCount(String text) {
     return '\n'
         .allMatches(text)
@@ -39,10 +42,6 @@ class TextProcessingService {
 
   String getReplaced(String content, String target, String replacement) {
     return content.replaceAll(target, replacement);
-  }
-
-  String convertMarkdownToHtml(String content) {
-    return md.markdownToHtml(content, extensionSet: md.ExtensionSet.commonMark);
   }
 
   String sort(String text) {
@@ -167,7 +166,7 @@ class TextProcessingService {
     return text.replaceAll('\n', '\n\n');
   }
 
-  String randomise(String text) {
+  String randomiseLines(String text) {
     List<String> segments = text.split('\n');
     segments.shuffle();
     String out = "";
@@ -221,6 +220,10 @@ class TextProcessingService {
 
   String htmlUnescape(String txt) {
     return (new HtmlUnescape()).convert(txt);
+  }
+
+  String convertMarkdownToHtml(String content) {
+    return md.markdownToHtml(content, extensionSet: md.ExtensionSet.commonMark);
   }
 
 }

@@ -5,7 +5,7 @@ import 'package:stringprocess/stringprocess.dart';
 import 'package:test/test.dart';
 
 void main() {
-  TextProcessingService tps = new TextProcessingService();
+  StringProcessor tps = new StringProcessor();
 
   group('Generate:', () {
     test('getSequenceString', () {
