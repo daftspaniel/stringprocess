@@ -25,7 +25,7 @@ A simple usage example:
       print(tps.getLineCount("hello\ngood\nevening\nwelcome!\n"));
     }
 
-## Testing
+## Unit Testing
 
 pub run test test/stringprocess_test.dart -p chrome
 
