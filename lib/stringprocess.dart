@@ -5,4 +5,3 @@
 library stringprocess;
 
 export 'src/stringprocess_base.dart';
-
