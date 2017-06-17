@@ -10,21 +10,21 @@ void main() {
   group('Generate:', () {
     test('getSequenceString', () {
       expect(
-          tps.getSequenceString(1, 10, 1), "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n");
-      expect(tps.getSequenceString(5, 5, 1), "5\n6\n7\n8\n9\n");
-      expect(tps.getSequenceString(1, 10, 10),
+          tps.generateSequenceString(1, 10, 1), "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n");
+      expect(tps.generateSequenceString(5, 5, 1), "5\n6\n7\n8\n9\n");
+      expect(tps.generateSequenceString(1, 10, 10),
           "1\n11\n21\n31\n41\n51\n61\n71\n81\n91\n");
-      expect(tps.getSequenceString(10, 5, -1), "10\n9\n8\n7\n6\n");
+      expect(tps.generateSequenceString(10, 5, -1), "10\n9\n8\n7\n6\n");
     });
 
     test('getRepeatedString', () {
-      expect(tps.getRepeatedString("Moo", 4), "MooMooMooMoo");
-      expect(tps.getRepeatedString("Moo", 0), "");
+      expect(tps.generateRepeatedString("Moo", 4), "MooMooMooMoo");
+      expect(tps.generateRepeatedString("Moo", 0), "");
     });
 
     test('getRepeatedString with newline', () {
-      expect(tps.getRepeatedString("Moo", 4, true), "Moo\nMoo\nMoo\nMoo\n");
-      expect(tps.getRepeatedString("Moo", 0, true), "");
+      expect(tps.generateRepeatedString("Moo", 4, true), "Moo\nMoo\nMoo\nMoo\n");
+      expect(tps.generateRepeatedString("Moo", 0, true), "");
     });
   });
 
