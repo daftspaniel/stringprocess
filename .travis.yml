@@ -4,4 +4,6 @@ dart:
   - dev
 sudo: false
 dart_task:
-  - test: --platform firefox
+  - dartanalyzer: true
+  - test
+  - dartfmt

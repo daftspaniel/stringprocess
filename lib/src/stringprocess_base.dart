@@ -8,7 +8,6 @@ import 'package:html_unescape/html_unescape.dart';
 
 ///String Processor - that's the theory.
 class StringProcessor {
-
   ///Trim the supplied [String].
   String trimText(String src) {
     return src.trim();
@@ -31,10 +30,13 @@ class StringProcessor {
   ///Calculate the Word Count for the [String].
   int getWordCount(String text) {
     String workingText = text;
-    workingText =
-    workingText..replaceAll('\n', ' ')..replaceAll('.', ' ')..replaceAll(
-        ',', ' ')..replaceAll(':', ' ')..replaceAll(';', ' ')..replaceAll(
-        '?', ' ');
+    workingText = workingText
+      ..replaceAll('\n', ' ')
+      ..replaceAll('.', ' ')
+      ..replaceAll(',', ' ')
+      ..replaceAll(':', ' ')
+      ..replaceAll(';', ' ')
+      ..replaceAll('?', ' ');
     List<String> words = workingText.split(' ');
     words.removeWhere((word) => word.length == 0 || word == " ");
     return min(words.length, text.length);
@@ -42,9 +44,7 @@ class StringProcessor {
 
   ///Count the number of lines in the [String].
   int getLineCount(String text) {
-    return '\n'
-        .allMatches(text)
-        .length;
+    return '\n'.allMatches(text).length;
   }
 
   ///Return [String] of supplied text repeated count times.
@@ -52,8 +52,9 @@ class StringProcessor {
       [bool newLine = false]) {
     count ??= 1;
 
-    return newLine ? (textToRepeat + '\n') * count.toInt() : textToRepeat *
-        count.toInt();
+    return newLine
+        ? (textToRepeat + '\n') * count.toInt()
+        : textToRepeat * count.toInt();
   }
 
   ///Returns a [String] made from content with all occurances of target
@@ -69,8 +70,7 @@ class StringProcessor {
     String delimiter;
     if (text.contains('\n')) {
       delimiter = '\n';
-    }
-    else
+    } else
       delimiter = ' ';
 
     return sortDelimiter(text, delimiter);
@@ -194,7 +194,8 @@ class StringProcessor {
   }
 
   ///Returns a [String] of a sequence of numbers.
-  String generateSequenceString(num startIndex, num repeatCount, num increment) {
+  String generateSequenceString(
+      num startIndex, num repeatCount, num increment) {
     String out = "";
     num current = startIndex;
     for (int i = 0; i < repeatCount; i++) {
@@ -210,14 +211,14 @@ class StringProcessor {
     String out = "";
 
     for (int i = 0; i < segments.length; i++) {
-      if (segments[i].length != 0 && segments[i] != "\r" &&
+      if (segments[i].length != 0 &&
+          segments[i] != "\r" &&
           segments[i].indexOf(target) == -1) {
         out += segments[i];
         if (i < (segments.length - 1) && text.indexOf('\n') > -1) {
           out += '\n';
         }
-      }
-      else if (segments[i].length == 0 || segments[i] != "\r") {
+      } else if (segments[i].length == 0 || segments[i] != "\r") {
         out += '\r\n';
       }
     }
@@ -244,5 +245,4 @@ class StringProcessor {
   String convertMarkdownToHtml(String content) {
     return md.markdownToHtml(content, extensionSet: md.ExtensionSet.commonMark);
   }
-
 }
