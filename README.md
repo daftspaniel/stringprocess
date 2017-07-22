@@ -33,6 +33,9 @@ A simple usage example:
 
 pub run test test/stringprocess_test.dart -p chrome
 
+## Check source code formatting:
+  + dartfmt -n .
+
 ## Acknowledgements
 This package makes use of the following Dart packages:
 

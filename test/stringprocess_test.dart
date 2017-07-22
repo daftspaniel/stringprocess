@@ -151,6 +151,13 @@ void main() {
       expect(tps.deleteLinesContaining(txt, "cat"), "\r\n\r\nMOO\r\n\r\n\r\n");
     });
 
+    test('remove lines NOT containing', () {
+      String txt =
+          "\r\n\r\nThe cat sat\r\ndog\r\ndog zebra mouse\r\nThe cat sat\r\n\dog\r\nThe cat sat\r\n";
+      expect(tps.deleteLinesNotContaining(txt, "cat"),
+          'The cat sat\r\n\r\n\r\nThe cat sat\r\n\r\nThe cat sat\r\n\r\n');
+    });
+
     test('encode', () {
       String txt = "The cat sat on the mat";
       expect(tps.uriEncode(txt), 'The%20cat%20sat%20on%20the%20mat');

@@ -1,7 +1,7 @@
 name: stringprocess
 description: A collection of string manipulation functions.
-version: 0.0.3
-author: daftspaniel <daftspaniel@gmail.com>
+version: 0.0.4
+author: Davy Mitchell <daftspaniel@gmail.com>
 homepage: https://github.com/daftspaniel/stringprocess/
 environment:
   sdk: '>=1.20.1 <2.0.0-dev.infinity'

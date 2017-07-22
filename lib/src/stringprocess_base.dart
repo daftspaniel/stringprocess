@@ -205,7 +205,7 @@ class StringProcessor {
     return out;
   }
 
-  ///Returns a [String] with the input lines containing a target string removed.
+  ///Returns a [String] with the input lines containing a [target] string removed.
   deleteLinesContaining(String text, String target) {
     List<String> segments = text.split('\n');
     String out = "";
@@ -244,5 +244,26 @@ class StringProcessor {
   ///Return a [String] of HTML converted from the input Markdown.
   String convertMarkdownToHtml(String content) {
     return md.markdownToHtml(content, extensionSet: md.ExtensionSet.commonMark);
+  }
+
+  ///Returns a [String] with the input lines containing a [target] string removed.
+  deleteLinesNotContaining(String text, String target) {
+    List<String> segments = text.split('\n');
+    String out = "";
+
+    for (int i = 0; i < segments.length; i++) {
+      if (segments[i].length != 0 &&
+          segments[i] != "\r" &&
+          segments[i].indexOf(target) > -1) {
+        out += segments[i];
+        if (i < (segments.length - 1) && text.indexOf('\n') > -1) {
+          out += '\n';
+        }
+      } else if (segments[i].length == 0 || segments[i] != "\r") {
+        out += '\r\n';
+      }
+    }
+
+    return out;
   }
 }
