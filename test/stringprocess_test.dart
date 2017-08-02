@@ -168,6 +168,11 @@ void main() {
       expect(tps.uriDecode(txt), "The cat sat on the mat");
     });
 
+    test('split', () {
+      String txt = "1,35,55,33,64";
+      expect(tps.split(txt, ","), "1\r\n35\r\n55\r\n33\r\n64\r\n");
+    });
+
     test('htmlEscape', () {
       expect(tps.htmlUnescape(""), "");
       expect(tps.htmlUnescape("&lt;HTML&gt;"), "<HTML>");

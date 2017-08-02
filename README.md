@@ -31,7 +31,7 @@ A simple usage example:
 
 ## Unit Testing
 
-pub run test test/stringprocess_test.dart -p chrome
+  + pub run test
 
 ## Check source code formatting:
   + dartfmt -n .

@@ -236,6 +236,14 @@ class StringProcessor {
     return Uri.decodeFull(text);
   }
 
+  ///Return a [String] of the input text with each item (defined by the
+  ///delimiter on new line).
+  String split(String text, String delimiter) {
+    String out = '';
+    text.split(delimiter).forEach((String item) => out += "$item\r\n");
+    return out;
+  }
+
   ///Return a [String] of Unescaped HTML.
   String htmlUnescape(String text) {
     return (new HtmlUnescape()).convert(text);
