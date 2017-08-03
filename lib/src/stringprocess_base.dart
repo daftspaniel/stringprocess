@@ -240,7 +240,11 @@ class StringProcessor {
   ///delimiter on new line).
   String split(String text, String delimiter) {
     String out = '';
-    text.split(delimiter).forEach((String item) => out += "$item\r\n");
+    if (text.indexOf(delimiter) == -1) {
+      return text;
+    } else {
+      text.split(delimiter).forEach((String item) => out += "$item\r\n");
+    }
     return out;
   }
 

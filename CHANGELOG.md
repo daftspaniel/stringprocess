@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.6
+
+ - Improved split method 
+ 
 ## 0.0.5
 
  - Added split method
