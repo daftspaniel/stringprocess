@@ -259,7 +259,7 @@ class StringProcessor {
   }
 
   ///Returns a [String] with the input lines containing a [target] string removed.
-  deleteLinesNotContaining(String text, String target) {
+  String deleteLinesNotContaining(String text, String target) {
     List<String> segments = text.split('\n');
     String out = "";
 
@@ -273,6 +273,26 @@ class StringProcessor {
         }
       } else if (segments[i].length == 0 || segments[i] != "\r") {
         out += '\r\n';
+      }
+    }
+
+    return out;
+  }
+
+  ///Returns a [String] with the input lines with content numbered.
+  String addNumbering(String text) {
+    if (text.length == 0) {
+      return '';
+    }
+    List<String> segments = text.split('\n');
+    String out = "";
+    int numberingIndex = 1;
+    for (int i = 0; i < segments.length; i++) {
+      if (segments[i].length > 0) {
+        out += '${numberingIndex}. ' + segments[i] + '\n';
+        numberingIndex++;
+      } else if (i + 1 != segments.length) {
+        out += segments[i] + '\n';
       }
     }
 

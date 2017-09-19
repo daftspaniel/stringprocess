@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.7
+
+ - Added simple numbering method. 
+
 ## 0.0.6
 
  - Improved split method 

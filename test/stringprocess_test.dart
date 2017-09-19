@@ -182,5 +182,15 @@ void main() {
       expect(tps.htmlUnescape(""), "");
       expect(tps.htmlUnescape("&lt;HTML&gt;"), "<HTML>");
     });
+
+    test('addNumbering', () {
+      expect(tps.addNumbering(""), "");
+      expect(tps.addNumbering("Hello"), "1. Hello\n");
+      expect(tps.addNumbering("Hello\nWorld\n"), "1. Hello\n2. World\n");
+      expect(tps.addNumbering("Hello\nWorld\nWorms\n"),
+          "1. Hello\n2. World\n3. Worms\n");
+      expect(tps.addNumbering("Hello\n\nWorld\nWorms\n"),
+          "1. Hello\n\n2. World\n3. Worms\n");
+    });
   });
 }
