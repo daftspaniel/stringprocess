@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.8
+
+ - Minor doc updated and SDK constraint changed.
+
 ## 0.0.7
 
  - Added simple numbering method. 
