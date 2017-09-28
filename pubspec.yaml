@@ -1,10 +1,10 @@
 name: stringprocess
 description: A collection of string manipulation functions.
-version: 0.0.7
+version: 0.0.8
 author: Davy Mitchell <daftspaniel@gmail.com>
 homepage: https://github.com/daftspaniel/stringprocess/
 environment:
-  sdk: '>=1.20.1 <2.0.0-dev.infinity'
+  sdk: '>=1.20.1 <2.0.0'
 
 dependencies:
   html_unescape: ^0.1.5

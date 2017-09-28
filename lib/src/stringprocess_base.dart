@@ -193,7 +193,7 @@ class StringProcessor {
     return out;
   }
 
-  ///Returns a [String] of a sequence of numbers.
+  ///Returns a [String] of a sequence of numbers each on a new line.
   String generateSequenceString(
       num startIndex, num repeatCount, num increment) {
     String out = "";
