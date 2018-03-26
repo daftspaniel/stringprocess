@@ -192,5 +192,14 @@ void main() {
       expect(tps.addNumbering("Hello\n\nWorld\nWorms\n"),
           "1. Hello\n\n2. World\n3. Worms\n");
     });
+
+    test('trimAllSpaces', () {
+      expect(tps.trimAllSpaces("           "), "");
+      expect(tps.trimAllSpaces(""), "");
+      expect(tps.trimAllSpaces("\n"), "\n");
+      expect(tps.trimAllSpaces(" the    monkey  "), "the monkey");
+      expect(tps.trimAllSpaces(" the    monkey  \n    ffff jjjjj    SSS"),
+          "the monkey\nffff jjjjj SSS");
+    });
   });
 }

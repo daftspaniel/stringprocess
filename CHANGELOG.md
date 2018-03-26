@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.9
+ - trimAllSpaces function added.
+
 ## 0.0.8
 
  - Minor doc updated and SDK constraint changed.

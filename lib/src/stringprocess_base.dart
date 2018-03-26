@@ -298,4 +298,27 @@ class StringProcessor {
 
     return out;
   }
+
+  ///Returns a [String] with the input multiple spaces all reduced to 1 space.
+  trimAllSpaces(String text) {
+    var out = '';
+    var segments = text.split('\n');
+
+    for (int i = 0; i < segments.length; i++) {
+      var line = '';
+      var innerSegments = segments[i].split(' ');
+      for (int j = 0; j < innerSegments.length; j++) {
+        if (innerSegments[j].trim().length > 0) {
+          line += innerSegments[j].trim() + ' ';
+        }
+      }
+      out += line.trim();
+
+      if (i < (segments.length - 1)) {
+        out += '\n';
+      }
+    }
+
+    return out;
+  }
 }
