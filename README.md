@@ -1,6 +1,6 @@
 # stringprocess
 
-A library for string manipulation.
+A string library for common string operations and general text helper functions.
 
 ## Status
 

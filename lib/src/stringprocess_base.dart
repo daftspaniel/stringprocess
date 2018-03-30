@@ -299,6 +299,26 @@ class StringProcessor {
     return out;
   }
 
+  ///Returns a [String] with [leftTrim] characters removed for the left
+  ///and [rightTrim] for the right.
+  String splice(String text, int leftTrim, [int rightTrim = 0]) {
+    var out = '';
+    List<String> segments = text.split('\r\n');
+
+    for (int i = 0; i < segments.length; i++) {
+      var line = segments[i];
+      if (rightTrim > 0) {
+        out += line.substring(leftTrim, line.length - rightTrim);
+      } else {
+        out += line.substring(leftTrim);
+      }
+      if (segments.length > 1) {
+        out += '\r\n';
+      }
+    }
+    return out;
+  }
+
   ///Returns a [String] with the input multiple spaces all reduced to 1 space.
   trimAllSpaces(String text) {
     var out = '';
