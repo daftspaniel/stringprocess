@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+ - Splice changes.
+ - Refactor line splitting.
+
 ## 1.0.0
  - Bump to version 1 as package is stable.
  - Added splice method to chop characters off start/end of a line.

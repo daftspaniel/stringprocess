@@ -15,7 +15,7 @@ class StringProcessor {
 
   ///Returns a [String] with each line trimmed.
   String trimLines(String text) {
-    List<String> segments = text.split('\n');
+    List<String> segments = getSegments(text);
     String out = "";
 
     for (int i = 0; i < segments.length; i++) {
@@ -103,7 +103,7 @@ class StringProcessor {
 
   ///Returns a [String] with each line having a prefix added.
   String prefixLines(String text, String prefix) {
-    List<String> segments = text.split('\n');
+    List<String> segments = getSegments(text);
     String out = "";
     for (int i = 0; i < segments.length; i++) {
       out += prefix + segments[i];
@@ -116,7 +116,7 @@ class StringProcessor {
 
   ///Returns a [String] with each line having a postfix added.
   String postfixLines(String text, String postfix) {
-    List<String> segments = text.split('\n');
+    List<String> segments = getSegments(text);
     String out = "";
 
     for (int i = 0; i < segments.length; i++) {
@@ -130,7 +130,7 @@ class StringProcessor {
 
   ///Returns a [String] with each line duplicated.
   String dupeLines(String text) {
-    List<String> segments = text.split('\n');
+    List<String> segments = getSegments(text);
     String out = "";
 
     for (int i = 0; i < segments.length; i++) {
@@ -149,7 +149,7 @@ class StringProcessor {
 
   ///Returns a [String] with blank lines removed.
   String removeBlankLines(String text) {
-    List<String> segments = text.split('\n');
+    List<String> segments = getSegments(text);
     String out = "";
 
     for (int i = 0; i < segments.length; i++) {
@@ -180,7 +180,7 @@ class StringProcessor {
 
   ///Returns a [String] with lines in a random order.
   String randomiseLines(String text) {
-    List<String> segments = text.split('\n');
+    List<String> segments = getSegments(text);
     segments.shuffle();
     String out = "";
 
@@ -207,7 +207,7 @@ class StringProcessor {
 
   ///Returns a [String] with the input lines containing a [target] string removed.
   deleteLinesContaining(String text, String target) {
-    List<String> segments = text.split('\n');
+    List<String> segments = getSegments(text);
     String out = "";
 
     for (int i = 0; i < segments.length; i++) {
@@ -260,7 +260,7 @@ class StringProcessor {
 
   ///Returns a [String] with the input lines containing a [target] string removed.
   String deleteLinesNotContaining(String text, String target) {
-    List<String> segments = text.split('\n');
+    List<String> segments = getSegments(text);
     String out = "";
 
     for (int i = 0; i < segments.length; i++) {
@@ -284,7 +284,7 @@ class StringProcessor {
     if (text.length == 0) {
       return '';
     }
-    List<String> segments = text.split('\n');
+    var segments = getSegments(text);
     String out = "";
     int numberingIndex = 1;
     for (int i = 0; i < segments.length; i++) {
@@ -299,11 +299,16 @@ class StringProcessor {
     return out;
   }
 
+  List<String> getSegments(String text) {
+    List<String> segments = text.split('\n');
+    return segments;
+  }
+
   ///Returns a [String] with [leftTrim] characters removed for the left
   ///and [rightTrim] for the right.
   String splice(String text, int leftTrim, [int rightTrim = 0]) {
     var out = '';
-    List<String> segments = text.split('\r\n');
+    var segments = getSegments(text);
 
     for (int i = 0; i < segments.length; i++) {
       var line = segments[i];
@@ -313,16 +318,16 @@ class StringProcessor {
         out += line.substring(leftTrim);
       }
       if (segments.length > 1) {
-        out += '\r\n';
+        out += '\n';
       }
     }
     return out;
   }
 
   ///Returns a [String] with the input multiple spaces all reduced to 1 space.
-  trimAllSpaces(String text) {
+  String trimAllSpaces(String text) {
     var out = '';
-    var segments = text.split('\n');
+    var segments = getSegments(text);
 
     for (int i = 0; i < segments.length; i++) {
       var line = '';

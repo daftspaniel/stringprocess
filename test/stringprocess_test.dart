@@ -206,10 +206,11 @@ void main() {
       expect(tps.splice("the red fish", 4), "red fish");
       expect(tps.splice("the red fish", 4, 2), "red fi");
 
-      expect(tps.splice("the red fish\r\nthe blue dogz", 4),
-          "red fish\r\nblue dogz\r\n");
-      expect(tps.splice("the red fish\r\nthe blue dogz", 4, 2),
-          "red fi\r\nblue do\r\n");
+      expect(tps.splice("the red fishes\nthe blue dogz", 4),
+          "red fishes\nblue dogz\n");
+
+      expect(tps.splice("the red fishes!!\nthe blue dogz", 4, 2),
+          "red fishes\nblue do\n");
     });
   });
 }
