@@ -312,12 +312,18 @@ class StringProcessor {
 
     for (int i = 0; i < segments.length; i++) {
       var line = segments[i];
-      if (rightTrim > 0) {
-        out += line.substring(leftTrim, line.length - rightTrim);
+      var currentLength = line.length;
+      if (currentLength <= leftTrim || (line.length - rightTrim) < 1) {
+        out += '\n';
+      } else if (rightTrim > 0) {
+        if ((line.length - rightTrim) >= leftTrim)
+          out += line.substring(leftTrim, line.length - rightTrim);
+        else
+          out += '\n';
       } else {
         out += line.substring(leftTrim);
       }
-      if (segments.length > 1) {
+      if (text.indexOf('\n') > -1) {
         out += '\n';
       }
     }

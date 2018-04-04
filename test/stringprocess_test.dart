@@ -211,6 +211,15 @@ void main() {
 
       expect(tps.splice("the red fishes!!\nthe blue dogz", 4, 2),
           "red fishes\nblue do\n");
+
+      expect(tps.splice("the red fish\ndog\nthisi\n", 4, 2),
+          'red fi\n\n\n\n\n\n\n');
+
+      expect(tps.splice("this\nthisis", 4, 2), '\n\n\n');
+
+      expect(tps.splice("this\nthis*is", 4, 2), '\n\n*\n');
+
+      expect(tps.splice("dog", 2, 2), '\n');
     });
   });
 }

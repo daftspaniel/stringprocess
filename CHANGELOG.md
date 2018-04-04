@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.2
+ - Splice function covers cases where splice values are outside string length.
+
 ## 1.0.1
  - Splice changes.
  - Refactor line splitting.
