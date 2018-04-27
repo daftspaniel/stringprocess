@@ -202,6 +202,12 @@ void main() {
           "the monkey\nffff jjjjj SSS");
     });
 
+    test('sortByLength', () {
+      expect(tps.sortByLength("the red fish"), "the red fish\n");
+      expect(
+          tps.sortByLength("the red fish\na\nmeee"), "a\nmeee\nthe red fish\n");
+    });
+
     test('splice', () {
       expect(tps.splice("the red fish", 4), "red fish");
       expect(tps.splice("the red fish", 4, 2), "red fi");

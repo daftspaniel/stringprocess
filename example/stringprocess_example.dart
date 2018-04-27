@@ -5,7 +5,7 @@ import 'package:stringprocess/stringprocess.dart';
 
 main() {
   // A few simple examples.
-  StringProcessor tps = new StringProcessor();
+  var tps = new StringProcessor();
 
   // Print the numbers 1 to 10.
   print(tps.generateSequenceString(1, 10, 1));

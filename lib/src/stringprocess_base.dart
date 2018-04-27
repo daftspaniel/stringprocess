@@ -352,4 +352,15 @@ class StringProcessor {
 
     return out;
   }
+
+  ///Returns a [String] with the input lines sorted by length (ascending).
+  String sortByLength(String text) {
+    var out = '';
+    var segments = getSegments(text);
+    segments.sort((a, b) => a.length.compareTo(b.length));
+    for (var i = 0; i < segments.length; i++) {
+      out += segments[i] + '\n';
+    }
+    return out;
+  }
 }

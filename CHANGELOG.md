@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.3
+ - Sort lines in string by length (ascending).
+
 ## 1.0.2
  - Splice function covers cases where splice values are outside string length.
 
