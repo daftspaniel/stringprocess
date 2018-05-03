@@ -42,9 +42,21 @@ class StringProcessor {
     return min(words.length, text.length);
   }
 
-  ///Count the number of lines in the [String].
+  ///Count the number of lines in the [String] text.
   int getLineCount(String text) {
     return '\n'.allMatches(text).length;
+  }
+
+  ///Count the number of sentences in the [String] text.
+  int getSentenceCount(String text) {
+    var processedText =
+        text.replaceAll('!', '.').replaceAll('?', '.').replaceAll('...', '.');
+    var sentences = processedText.split('.');
+    var sentenceCount = 0;
+    for (int i = 0; i < sentences.length; i++) {
+      if (sentences[i].length > 1) sentenceCount++;
+    }
+    return sentenceCount;
   }
 
   ///Return [String] of supplied text repeated count times.

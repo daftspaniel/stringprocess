@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.4
+ - Count sentences in the text supplied.
+
 ## 1.0.3
  - Sort lines in string by length (ascending).
 
