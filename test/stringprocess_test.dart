@@ -53,7 +53,10 @@ void main() {
       expect(tps.getSentenceCount("hello to you."), 1);
       expect(tps.getSentenceCount("hello to you"), 1);
       expect(tps.getSentenceCount("hello.\n"), 1);
-      expect(tps.getSentenceCount("hello there are monkeys. Yes, there is. No! I don't know? hmmm"), 5);
+      expect(
+          tps.getSentenceCount(
+              "hello there are monkeys. Yes, there is. No! I don't know? hmmm"),
+          5);
     });
 
     test('dupeLines', () {
