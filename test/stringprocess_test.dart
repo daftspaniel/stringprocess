@@ -52,6 +52,7 @@ void main() {
       expect(tps.getSentenceCount(""), 0);
       expect(tps.getSentenceCount("hello to you."), 1);
       expect(tps.getSentenceCount("hello to you"), 1);
+      expect(tps.getSentenceCount("23. hello to you."), 1);
       expect(tps.getSentenceCount("hello.\n"), 1);
       expect(
           tps.getSentenceCount(
@@ -217,6 +218,21 @@ void main() {
       expect(tps.sortByLength("the red fish"), "the red fish\n");
       expect(
           tps.sortByLength("the red fish\na\nmeee"), "a\nmeee\nthe red fish\n");
+    });
+
+    test('denumber', () {
+      expect(tps.denumber("012the34 red 6789fish"), "the red fish");
+      expect(
+          tps.denumber("012the34 road 6789fish98798743989887438798347939739"),
+          "the road fish");
+    });
+
+    test('duplicateLine', () {
+      expect(tps.duplicateLine('This is and intro\ntrouble\nclosing words', 20),
+          'This is and intro\ntrouble\ntrouble\nclosing words');
+      expect(tps.duplicateLine('\nmouse', 0), '\nmouse');
+      expect(tps.duplicateLine('mouse\n', 0), 'mouse\nmouse\n');
+      expect(tps.duplicateLine('mouse\n', 3), 'mouse\nmouse\n');
     });
 
     test('splice', () {

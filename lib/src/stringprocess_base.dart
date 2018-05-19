@@ -51,7 +51,7 @@ class StringProcessor {
   int getSentenceCount(String text) {
     var processedText =
         text.replaceAll('!', '.').replaceAll('?', '.').replaceAll('...', '.');
-    var sentences = processedText.split('.');
+    var sentences = denumber(processedText).split('.');
     var sentenceCount = 0;
     for (int i = 0; i < sentences.length; i++) {
       if (sentences[i].length > 1) sentenceCount++;
@@ -374,5 +374,28 @@ class StringProcessor {
       out += segments[i] + '\n';
     }
     return out;
+  }
+
+  ///Returns a [String] with input having 0123456789 removed.
+  String denumber(String text) {
+    for (var i = 0; i < 10; i++) text = text.replaceAll('$i', '');
+    return text;
+  }
+
+  ///Returns a [String] with the line that incorporates the index at position
+  ///duplicated.
+  String duplicateLine(String text, int position) {
+    var start = max(text.lastIndexOf('\n', position), 0);
+    var end = text.indexOf('\n', position);
+    if (start + 1 < end) {
+      var dupe = text.substring(start == 0 ? 0 : start + 1, end);
+      text = text.substring(0, start) +
+          (start == 0 ? '' : '\n') +
+          dupe +
+          '\n' +
+          dupe +
+          text.substring(end);
+    }
+    return text;
   }
 }

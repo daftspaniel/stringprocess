@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.5
+ - Improve sentence count by ignore sentences that are numbers only.
+ - New function - Remove numbers from a string.
+ - New function - Duplicate line by index.
+
 ## 1.0.4
  - Count sentences in the text supplied.
 
