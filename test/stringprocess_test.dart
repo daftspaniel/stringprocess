@@ -7,6 +7,17 @@ import 'package:test/test.dart';
 void main() {
   StringProcessor tps = new StringProcessor();
 
+  group('Modify', () {
+    test('convertTabsToSpace', () {
+      expect(
+          tps.convertTabsToSpace('this\tis\tTABBED.'), 'this    is    TABBED.');
+    });
+    test('convertTabsToSpace - custom length', () {
+      expect(tps.convertTabsToSpace('this\tis\tTABBED.', numberOfSpaces: 2),
+          'this  is  TABBED.');
+    });
+  });
+
   group('Generate:', () {
     test('getSequenceString', () {
       expect(tps.generateSequenceString(1, 10, 1),
@@ -53,6 +64,12 @@ void main() {
       expect(tps.getSentenceCount("hello to you."), 1);
       expect(tps.getSentenceCount("hello to you"), 1);
       expect(tps.getSentenceCount("23. hello to you."), 1);
+      expect(tps.getSentenceCount("""
+      1. turnip
+      23. hello to you.
+      3. Hmm
+      4. Hope this works!
+      """), 4);
       expect(tps.getSentenceCount("hello.\n"), 1);
       expect(
           tps.getSentenceCount(

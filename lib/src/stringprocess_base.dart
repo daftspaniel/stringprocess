@@ -6,6 +6,8 @@ import 'dart:math';
 import 'package:markdown/markdown.dart' as md;
 import 'package:html_unescape/html_unescape.dart';
 
+const UNIX_NEWLINE = '\n';
+
 ///String Processor - that's the theory.
 class StringProcessor {
   ///Trim the supplied [String].
@@ -54,7 +56,7 @@ class StringProcessor {
     var sentences = denumber(processedText).split('.');
     var sentenceCount = 0;
     for (int i = 0; i < sentences.length; i++) {
-      if (sentences[i].length > 1) sentenceCount++;
+      if (sentences[i].trim().length > 1) sentenceCount++;
     }
     return sentenceCount;
   }
@@ -152,6 +154,12 @@ class StringProcessor {
       }
     }
     return out;
+  }
+
+  ///Returns a [String] with content with spaces instead of tabs.
+  String convertTabsToSpace(String text, {int numberOfSpaces = 4}) {
+    String spaces = ' ' * numberOfSpaces;
+    return text.replaceAll('\t', spaces);
   }
 
   ///Returns a [String] with all content on a single line.
@@ -311,9 +319,9 @@ class StringProcessor {
     return out;
   }
 
+  ///Break [String] into segements by line separator.
   List<String> getSegments(String text) {
-    List<String> segments = text.split('\n');
-    return segments;
+    return text.split(UNIX_NEWLINE);
   }
 
   ///Returns a [String] with [leftTrim] characters removed for the left

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.6
+ - Further sentence count improvements.
+ - New function - convert tabs to spaces.
+
 ## 1.0.5
  - Improve sentence count by ignore sentences that are numbers only.
  - New function - Remove numbers from a string.
