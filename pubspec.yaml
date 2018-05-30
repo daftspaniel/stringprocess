@@ -1,6 +1,6 @@
 name: stringprocess
 description: A string library for common string operations and general text processing functions.
-version: 1.0.6
+version: 1.0.7
 author: Davy Mitchell <daftspaniel@gmail.com>
 homepage: https://github.com/daftspaniel/stringprocess/
 environment:

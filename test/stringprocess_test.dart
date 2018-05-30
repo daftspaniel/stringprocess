@@ -250,6 +250,8 @@ void main() {
       expect(tps.duplicateLine('\nmouse', 0), '\nmouse');
       expect(tps.duplicateLine('mouse\n', 0), 'mouse\nmouse\n');
       expect(tps.duplicateLine('mouse\n', 3), 'mouse\nmouse\n');
+      expect(tps.duplicateLine('mouse\n', 4), 'mouse\nmouse\n');
+      expect(tps.duplicateLine('mouse\n', 5), 'mouse\nmouse\n');
     });
 
     test('splice', () {

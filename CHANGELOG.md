@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.7
+ - Improve Duplicate line by index when next to new line.
+
 ## 1.0.6
  - Further sentence count improvements.
  - New function - convert tabs to spaces.

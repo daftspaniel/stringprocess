@@ -395,6 +395,11 @@ class StringProcessor {
   String duplicateLine(String text, int position) {
     var start = max(text.lastIndexOf('\n', position), 0);
     var end = text.indexOf('\n', position);
+
+    if (start == end && position > 0) {
+      start = max(text.lastIndexOf('\n', position - 1), 0);
+    }
+
     if (start + 1 < end) {
       var dupe = text.substring(start == 0 ? 0 : start + 1, end);
       text = text.substring(0, start) +
